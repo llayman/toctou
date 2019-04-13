@@ -49,16 +49,12 @@ def safe_withdraw(account, amt):
         c.execute(
         "UPDATE accounts SET balance=((SELECT balance from accounts where account=?)-?) WHERE (account=? AND ((SELECT balance from accounts where account=?)-? >= 0))"
         ,(account,amt,account,account,amt))
-        query(12345)
+        query(account)
 
 
 if __name__ == "__main__":
     init(reset=True)
     query(12345)
-    # # withdraw(12345, 1)
-    # safe_withdraw(12345, 1)
-    # threading.Thread(target=periodically_print_query()).start()
-
 
     # server
     # https://ghostbin.com/paste/dahke

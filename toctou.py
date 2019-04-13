@@ -2,7 +2,7 @@ import socket
 import threading
 
 
-def spam():
+def send():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(('localhost', 22333))
     message = b'12345, 100'
@@ -11,4 +11,4 @@ def spam():
 
 print('Launching TOCTOU...')
 for i in range(33):
-    threading.Thread(target=spam).start()
+    threading.Thread(target=send).start()
